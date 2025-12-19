@@ -1,0 +1,14 @@
+from backend.worker.tasks import ingest_repo_task
+import time
+
+print("Triggering task manually...")
+# Use a random UUID for project_id to avoid FK issues if Project table empty (assuming loose coupling or we create project first)
+# But strictly, we need a project.
+# Let's create a project via API first if possible, or Mock it?
+# Actually tasks.py does DB operations, so foreign key WILL fail if project doesn't exist.
+
+# So we must verify project creation first.
+# Wait, verify_supabase said Projects: 0. 
+# THIS IS THE ISSUE. API said 200 OK but DB has 0 projects?
+# Ah, create_project uses session.add(new_project). Did it commit?
+# Let's inspect create_project code again.

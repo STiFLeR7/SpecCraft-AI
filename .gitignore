@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+
+
+# Node
+node_modules/
+.next/
+dist/
+
+# System
+.DS_Store
+Thumbs.db
+.pytest_cache
+UI_example/
+chatgpt-frontend.md
+docs_content.txt
+logo.png
+SpecCraft AI.docx
+SpecCraft-AI.md
+verify_pipeline.py
+/__init__.py
+.vscode
+backend/env.yaml
+storage/
+.env
