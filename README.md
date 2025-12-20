@@ -34,24 +34,11 @@ Whether you're onboarding new engineers, debugging legacy spaghetti code, or gen
 
 ## 📸 Interface Gallery
 
-<table align="center">
-  <tr>
-    <td align="center"><strong>Analyst Dashboard</strong></td>
-    <td align="center"><strong>Context-Aware Chat</strong></td>
-  </tr>
-  <tr>
-    <td><img src="assets/dashboard.png" width="400" alt="Dashboard" /></td>
-    <td><img src="assets/chat.png" width="400" alt="Chat Interface" /></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Architecture Graph</strong></td>
-    <td align="center"><strong>Live Ingestion Log</strong></td>
-  </tr>
-  <tr>
-    <td><img src="assets/graph.png" width="400" alt="Architecture Graph" /></td>
-    <td><img src="assets/ingestion.png" width="400" alt="Ingestion Logs" /></td>
-  </tr>
-</table>
+| Analyst Dashboard | Context-Aware Chat |
+| :---: | :---: |
+| ![Dashboard](assets/dashboard.png) | ![Chat Interface](assets/chat.png) |
+| **Architecture Graph** | **Live Ingestion Log** |
+| ![Architecture Graph](assets/graph.png) | ![Ingestion Logs](assets/ingestion.png) |
 
 ## 🏗️ Technical Architecture
 
@@ -60,18 +47,18 @@ SpecCraft AI follows a modern, decoupled microservices architecture designed for
 ```mermaid
 graph TD
     User[User] -->|HTTPS| Frontend[Next.js Frontend]
-    Frontend -->|Auth (JWT)| Supabase[Supabase Auth]
-    Frontend -->|API Calls| Backend[FastAPI Backend (Cloud Run)]
+    Frontend -->|"Auth (JWT)"| Supabase[Supabase Auth]
+    Frontend -->|"API Calls"| Backend[FastAPI Backend (Cloud Run)]
     
     subgraph "Backend Core"
-        Backend -->|Clone & Parse| Ingestion[Ingestion Engine]
-        Backend -->|Vector Search| PgVector[(Supabase pgvector)]
-        Backend -->|LLM Inference| Gemini[Google Gemini Pro]
-        Ingestion -->|Extract AST| TreeSitter[Tree-Sitter Parsers]
+        Backend -->|"Clone & Parse"| Ingestion[Ingestion Engine]
+        Backend -->|"Vector Search"| PgVector[(Supabase pgvector)]
+        Backend -->|"LLM Inference"| Gemini[Google Gemini Pro]
+        Ingestion -->|"Extract AST"| TreeSitter[Tree-Sitter Parsers]
     end
     
     subgraph "Data Storage"
-        Ingestion -->|Store Metadata| Postgres[(PostgreSQL DB)]
+        Ingestion -->|"Store Metadata"| Postgres[(PostgreSQL DB)]
     end
 ```
 
